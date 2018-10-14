@@ -5,7 +5,7 @@ namespace briantweed\LaravelViewFolder\Commands;
 use Illuminate\Support\Facades\File;
 use Illuminate\Console\GeneratorCommand;
 
-class CreateViewFolderStructure extends GeneratorCommand
+class ViewFolderStructure extends GeneratorCommand
 {
 
     protected $signature = 'make:view {path?} {{--p : Add partials sub-folder}}  {{--m : Add modals sub-folder}}  {{--c : Add components sub-folder}} {{--f : Add CRUD files}}';
