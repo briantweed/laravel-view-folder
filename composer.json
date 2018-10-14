@@ -1,6 +1,6 @@
 {
-    "name": "briantweed/laravelviewfolder",
-    "description": ":description",
+    "name": "briantweed/laravel-view-folder",
+    "description": "Create view folder structure with sub folders for partials, components and modals as ell as basic CRUD files ",
     "license": "MIT",
     "authors": [
         {
@@ -12,12 +12,6 @@
     "keywords": ["Laravel", "LaravelViewFolder"],
     "require": {
         "illuminate/support": "~5"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~7.0",
-        "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3.0",
-        "sempro/phpunit-pretty-print": "^1.0"
     },
     "autoload": {
         "psr-4": {
