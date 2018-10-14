@@ -1,0 +1,26 @@
+@extends('layouts.general')
+
+
+@section('css')
+
+    {{-- <link href="#####" rel="stylesheet" /> --}}
+
+@endsection
+
+
+
+@section('content')
+
+    <section>
+
+    </section>
+
+@endsection
+
+
+
+@section('jquery')
+
+    {{-- <script src="{{ mix('js/#####.js') }}"></script> --}}
+
+@endsection
