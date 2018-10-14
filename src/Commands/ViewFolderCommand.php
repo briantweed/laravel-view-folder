@@ -30,7 +30,7 @@ class ViewFolderCommand extends GeneratorCommand
 
         if(!$this->files->isDirectory($this->path)) {
 
-            $this->files->makeDirectory($this->path);
+            $this->files->makeDirectory($this->path, '0755', true);
             
             $askQuestions = !$this->additionalOptionsGiven();
 
