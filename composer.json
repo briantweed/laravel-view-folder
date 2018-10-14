@@ -32,5 +32,7 @@
                 "LaravelViewFolder": "briantweed\\LaravelViewFolder\\Facades\\LaravelViewFolder"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
