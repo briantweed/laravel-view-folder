@@ -13,7 +13,7 @@
     "require": {
         "illuminate/support": "~5"
     },
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "briantweed\\LaravelViewFolder\\": "src/"
         }
