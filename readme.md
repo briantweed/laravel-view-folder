@@ -1,9 +1,5 @@
 # LaravelViewFolder
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
 
 Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
 
