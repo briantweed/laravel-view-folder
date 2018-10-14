@@ -5,7 +5,9 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
+
+e.g. php artisan make:view admin.users
 
 ## Installation
 
@@ -15,25 +17,11 @@ Via Composer
 $ composer require briantweed/laravelviewfolder
 ```
 
-## Usage
-
-## Change log
-
-Please see the [changelog](changelog.md) for more information on what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
 
 ## Contributing
 
 Please see [contributing.md](contributing.md) for details and a todolist.
 
-## Security
-
-If you discover any security related issues, please email brtweed@outlook.com instead of using the issue tracker.
 
 ## Credits
 
