@@ -3,6 +3,7 @@
 Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
 
 
+
 ## Basic Usage
 
 Use the command: **php artisan make:view**
@@ -13,6 +14,7 @@ You will then be promted with a series of questions:
 3. Would you like a sub-folder for components? *(y or n)*
 4. Would you like a sub-folder for modals? *(y or n)*
 5. Would you like to add CRUD files? *(y or n) creates index, create, edit and delete files*
+
 
 **Additional Options**
 
@@ -25,7 +27,9 @@ There are also options for each of the additional questions
 No questions will be asked if one or more of these is included in the command
 
 e.g. : **php artisan make:view pages.admin.test --p --f**
-       This will create a pages/admin/test folder with a partials subfolder and the CRUD files
+
+This will create a pages/admin/test folder with a partials subfolder and the CRUD files
+
 
 
 ## Installation
@@ -37,9 +41,11 @@ $ composer require briantweed/laravelviewfolder
 ```
 
 
+
 ## Contributing
 
 Please see [contributing.md](contributing.md) for details and a todolist.
+
 
 
 
@@ -47,6 +53,8 @@ Please see [contributing.md](contributing.md) for details and a todolist.
 
 - [Brian Tweed][link-author]
 - [All Contributors][link-contributors]
+
+
 
 
 ## License
