@@ -1,4 +1,4 @@
-# LaravelViewFolder
+# Laravel View Folder
 
 Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
 
