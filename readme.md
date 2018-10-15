@@ -1,23 +1,24 @@
 # Laravel View Folder
 
 Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
-
-
-
+  
 ## Basic Usage
 
 Use the command: 
 ``` php
 php artisan make:view
 ```
+<br>
 
 You will then be promted with a series of questions:
-1. What is the folder path (use can use forward slashes or dots) ? *e.g. pages/admin/users or pages.admin.users*
-2. Would you like a sub-folder for partials? *(y or n)*
-3. Would you like a sub-folder for components? *(y or n)*
-4. Would you like a sub-folder for modals? *(y or n)*
-5. Would you like to add CRUD files? *(y or n) creates index, create, edit and delete files*
-
+```
+-What is the folder path (use can use forward slashes or dots) ? *e.g. pages/admin/users or pages.admin.users*
+-Would you like a sub-folder for partials? *(y or n)*
+-Would you like a sub-folder for components? *(y or n)*
+-Would you like a sub-folder for modals? *(y or n)*
+-Would you like to add CRUD files? *(y or n) creates index, create, edit and delete files*
+```
+<br/>
 
 **Additional Options**
 
@@ -35,18 +36,18 @@ There are also options for each of the additional questions:
 --m : add modals subfolder
 --f : add CRUD files
 ```
+<br/>
 
 No questions will be asked if one or more of these are included in the command
 
-e.g.
 ``` php
 php artisan make:view pages.admin.test --p --f
 ```
 
-This will create a pages/admin/test folder with a partials subfolder and the CRUD files . 
+This will create a pages/admin/test tree folder structure with a partials subfolder and the CRUD files 
+<br>
 
-
-
+  
 ## Installation
 
 Via Composer
