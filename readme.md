@@ -22,16 +22,18 @@ You will then be promted with a series of questions:
 **Additional Options**
 
 You can specify the folder structure with the command: 
+
 ``` php
 php artisan make:view pages.admin.users
 ```
+
 There are also options for each of the additional questions:    
 
 ```
---p : partials
---c : components
---m : modals
---f : CRUD files
+--p : add partials subfolder
+--c : add components subfolder
+--m : add modals subfolder
+--f : add CRUD files
 ```
 
 No questions will be asked if one or more of these are included in the command
@@ -41,7 +43,7 @@ e.g.
 php artisan make:view pages.admin.test --p --f
 ```
 
-This will create a pages/admin/test folder with a partials subfolder and the CRUD files
+This will create a pages/admin/test folder with a partials subfolder and the CRUD files . 
 
 
 
