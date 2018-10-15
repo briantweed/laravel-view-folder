@@ -26,7 +26,10 @@ There are also options for each of the additional questions
 --f : CRUD files
 No questions will be asked if one or more of these is included in the command
 
-e.g. : **php artisan make:view pages.admin.test --p --f**
+e.g.
+``` php
+php artisan make:view pages.admin.test --p --f**
+```
 
 This will create a pages/admin/test folder with a partials subfolder and the CRUD files
 
