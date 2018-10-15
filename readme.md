@@ -3,7 +3,6 @@
 Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
 
 
----
 
 ## Basic Usage
 
@@ -29,8 +28,11 @@ php artisan make:view pages.admin.users
 There are also options for each of the additional questions:    
 
 --p : partials .  
+
 --c : components . 
+
 --m : modals . 
+
 --f : CRUD files . 
 
 No questions will be asked if one or more of these is included in the command
@@ -42,7 +44,6 @@ php artisan make:view pages.admin.test --p --f
 
 This will create a pages/admin/test folder with a partials subfolder and the CRUD files
 
----
 
 
 ## Installation
