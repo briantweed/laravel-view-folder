@@ -9,82 +9,158 @@ class ViewFolderCommand extends GeneratorCommand
 {
 
     protected $signature = 'make:view {path?} {{--p : Add partials sub-folder}}  {{--m : Add modals sub-folder}}  {{--c : Add components sub-folder}} {{--f : Add CRUD files}}';
-
     protected $description = 'Create view folder';
-
     protected $type = 'Console command';
 
-    protected $resourcePath = './resources/views/';
-
+    protected $additionalFiles;
     protected $optionGiven = false;
+    protected $basePath;
+    protected $currentFolder;
 
-    protected $path;
+    protected const RESOURCE_PATH = './resources/views/';
+
+    protected const FOLDER_PATH_QUESTION = 'What is the folder path (use can use forward slashes or dots) ?';
+    protected const SUBFOLDER_QUESTION = 'Would you like a sub-folder for ';
+    protected const CRUD_QUESTION = 'Would you like to add CRUD files?';
+
+    protected const PARTIALS_FOLDER = 'partials';
+    protected const MODALS_FOLDER = 'modals';
+    protected const COMPONENTS_FOLDER = 'components';
+
+    protected const OPTIONS_ARRAY = ['p','c','m','f'];
+
+    protected const CRUD_FILES = [
+        'index',
+        'create',
+        'edit',
+        'delete'
+    ];
+
+    protected const SUCCESS_MESSAGE = 'View folder created';
+    protected const ALREADY_EXISTS_MESSAGE = 'Folder already exists';
+
 
 
     public function handle()
     {
-        $this->path = $this->argument('path') ??
-            $this->ask('What is the folder path (use can use forward slashes or dots) ?');
+        $this->basePath = $this->argument('path') ?? $this->ask(self::FOLDER_PATH_QUESTION);
 
-        $this->generateFullPath();
+        $this->setBasePath();
 
-        if(!$this->files->isDirectory($this->path)) {
+        if(!$this->files->isDirectory($this->basePath)) {
 
-            $this->files->makeDirectory($this->path, 0755, true);
-            
+            $this->files->makeDirectory($this->basePath, 0755, true);
+
             $askQuestions = !$this->additionalOptionsGiven();
 
-            if ($this->option('p') || ($askQuestions && $this->confirm('Would you like a sub-folder for partials?'))) {
-                $this->files->makeDirectory($this->path . '/partials/');
+            if ($this->option('p') || ($askQuestions && $this->confirm(self::SUBFOLDER_QUESTION . self::PARTIALS_FOLDER . '?'))) {
+                $this->createDirectory(self::PARTIALS_FOLDER);
             }
 
-            if ($this->option('m') || ($askQuestions && $this->confirm('Would you like a sub-folder for modals?'))) {
-                $this->files->makeDirectory($this->path . '/modals/');
+            if ($this->option('m') || ($askQuestions && $this->confirm(self::SUBFOLDER_QUESTION . self::MODALS_FOLDER . '?'))) {
+                $this->createDirectory(self::MODALS_FOLDER);
             }
 
-            if ($this->option('c') || ($askQuestions && $this->confirm('Would you like a sub-folder for components?'))) {
-                $this->files->makeDirectory($this->path . '/components/');
-            }
-            
-            if ($this->option('f') || ($askQuestions && $this->confirm('Would you like to add CRUD files?'))) {
-                $stub = $this->getStub();
-                File::put($this->path.'/index.blade.php', $this->files->get($stub));
-                File::put($this->path.'/create.blade.php', $this->files->get($stub));
-                File::put($this->path.'/edit.blade.php', $this->files->get($stub));
-                File::put($this->path.'/delete.blade.php', $this->files->get($stub));
+            if ($this->option('c') || ($askQuestions && $this->confirm(self::SUBFOLDER_QUESTION . self::COMPONENTS_FOLDER . '?'))) {
+                $this->createDirectory(self::COMPONENTS_FOLDER);
             }
 
-            $this->info('View folder created');
+            $this->setCurrentFolder();
+
+            if ($this->option('f') || ($askQuestions && $this->confirm(self::CRUD_QUESTION))) {
+                $this->createCrudFiles();
+            }
+
+            $additionalFiles = $this->ask('Create additional files (comma separated) ?', false);
+            if($additionalFiles) {
+                $this->createAdditionalFiles($additionalFiles);
+            }
+            $this->info(self::SUCCESS_MESSAGE);
 
         }
         else {
-            $this->error('Folder already exists');
+            $this->error(self::ALREADY_EXISTS_MESSAGE);
         }
 
     }
 
 
-    protected function getStub()
+    protected function createDirectory($folder)
+    {
+        $this->setCurrentFolder($folder);
+
+        $this->files->makeDirectory($this->basePath . '/' . $this->currentFolder . '/');
+
+        $additionalFiles = $this->ask('Create files for ' . strtolower($folder) . ' folder (comma separated) ?', false);
+
+        if($additionalFiles) {
+            $this->createAdditionalFiles($additionalFiles);
+        }
+    }
+
+
+    protected function getStub(): string
     {
         return __DIR__.'/stubs/view.stub';
     }
 
 
-    private function generateFullPath()
+    private function setBasePath()
     {
-        $this->path = $this->resourcePath . $this->formatPath();
+        $this->basePath = self::RESOURCE_PATH . $this->formatPath();
     }
 
 
-    private function formatPath()
+    private function setCurrentFolder($folder = '')
     {
-        return str_replace('.', '/', $this->path);
+        $this->currentFolder = $folder ? $folder . '/' : '';
     }
 
 
-    private function additionalOptionsGiven()
+    private function formatPath(): string
     {
-        return in_array(['p','c','m','f'], $this->options());
+        return $this->format($this->basePath);
+    }
+
+
+    private function format(string $string): string
+    {
+        return str_replace('.', '/', $string);
+    }
+
+
+    private function createCrudFiles()
+    {
+        foreach(self::CRUD_FILES as $file) {
+            $this->createFile($file);
+        }
+    }
+
+
+    private function createAdditionalFiles(string $string)
+    {
+        $files = $this->getFiles($string);
+        foreach($files as $file) {
+            $this->createFile($file);
+        }
+    }
+
+
+    private function getFiles(string$string): array
+    {
+        return explode(',', $string);
+    }
+
+
+    private function createFile(string $file)
+    {
+        File::put($this->basePath . '/' . $this->currentFolder . $file . '.blade.php', $this->files->get($this->getStub()));
+    }
+
+
+    private function additionalOptionsGiven(): bool
+    {
+        return in_array(self::OPTIONS_ARRAY, $this->options());
     }
 
 }
