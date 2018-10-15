@@ -27,10 +27,12 @@ php artisan make:view pages.admin.users
 ```
 There are also options for each of the additional questions:    
 
---p : partials .  
---c : components . 
---m : modals . 
---f : CRUD files . 
+```
+--p : partials
+--c : components
+--m : modals
+--f : CRUD files
+```
 
 No questions will be asked if one or more of these are included in the command
 
