@@ -9,10 +9,10 @@ Use the command: **php artisan make:view**
 
 You will then be promted with a series of questions:
 1. What is the folder path (use can use forward slashes or dots) ? *e.g. pages/admin/users or pages.admin.users*
-2. Would you like a sub-folder for partials?
-3. Would you like a sub-folder for components?
-4. Would you like a sub-folder for modals?
-5. Would you like to add CRUD files? *creates index, create, edit and delete files*
+2. Would you like a sub-folder for partials? *y or n*
+3. Would you like a sub-folder for components? *y or n*
+4. Would you like a sub-folder for modals? *y or n*
+5. Would you like to add CRUD files? *y or n * | *creates index, create, edit and delete files*
 
 **Additional Options**
 
