@@ -6,7 +6,10 @@ Create view folder structure with sub folders for partials, components and modal
 
 ## Basic Usage
 
-Use the command: **php artisan make:view**
+Use the command: 
+``` php
+php artisan make:view
+```
 
 You will then be promted with a series of questions:
 1. What is the folder path (use can use forward slashes or dots) ? *e.g. pages/admin/users or pages.admin.users*
@@ -18,17 +21,20 @@ You will then be promted with a series of questions:
 
 **Additional Options**
 
-You can specify the folder structure with the command: **php artisan make:view pages.admin.users**
-There are also options for each of the additional questions
---p : partials
---c : components
---m : modals
---f : CRUD files
+You can specify the folder structure with the command: 
+``` php
+php artisan make:view pages.admin.users
+```
+There are also options for each of the additional questions . 
+--p : partials . 
+--c : components . 
+--m : modals . 
+--f : CRUD files . 
 No questions will be asked if one or more of these is included in the command
 
 e.g.
 ``` php
-php artisan make:view pages.admin.test --p --f**
+php artisan make:view pages.admin.test --p --f
 ```
 
 This will create a pages/admin/test folder with a partials subfolder and the CRUD files
