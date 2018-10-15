@@ -3,6 +3,7 @@
 Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
 
 
+---
 
 ## Basic Usage
 
@@ -39,6 +40,7 @@ php artisan make:view pages.admin.test --p --f
 
 This will create a pages/admin/test folder with a partials subfolder and the CRUD files
 
+---
 
 
 ## Installation
