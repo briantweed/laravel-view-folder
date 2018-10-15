@@ -11,12 +11,12 @@ php artisan make:view
 <br>
 
 You will then be promted with a series of questions:
-```
--What is the folder path (use can use forward slashes or dots) ? *e.g. pages/admin/users or pages.admin.users*
--Would you like a sub-folder for partials? *(y or n)*
--Would you like a sub-folder for components? *(y or n)*
--Would you like a sub-folder for modals? *(y or n)*
--Would you like to add CRUD files? *(y or n) creates index, create, edit and delete files*
+``` text
+What is the folder path (use can use forward slashes or dots) ? (pages/admin/users or pages.admin.users)
+Would you like a sub-folder for partials? (y/n)
+Would you like a sub-folder for components? (y/n)
+Would you like a sub-folder for modals? (y/n)
+Would you like to add CRUD files? (y/n) (creates index, create, edit and delete files)
 ```
 <br/>
 
@@ -30,7 +30,7 @@ php artisan make:view pages.admin.users
 
 There are also options for each of the additional questions:    
 
-```
+``` text
 --p : add partials subfolder
 --c : add components subfolder
 --m : add modals subfolder
@@ -45,6 +45,7 @@ php artisan make:view pages.admin.test --p --f
 ```
 
 This will create a pages/admin/test tree folder structure with a partials subfolder and the CRUD files 
+
 <br>
 
   
@@ -53,25 +54,24 @@ This will create a pages/admin/test tree folder structure with a partials subfol
 Via Composer
 
 ``` bash
-$ composer require briantweed/laravelviewfolder
+$ composer require --dev briantweed/laravelviewfolder
 ```
 
+<br/>
 
 
 ## Contributing
 
 Please see [contributing.md](contributing.md) for details and a todolist.
 
-
-
+<br/>
 
 ## Credits
 
 - [Brian Tweed][link-author]
 - [All Contributors][link-contributors]
 
-
-
+<br/>
 
 ## License
 
