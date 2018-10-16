@@ -15,7 +15,7 @@ php artisan make:view
 
 You will then be asked a series of questions:
 ``` text
-What is the folder path (use can use forward slashes or dots) ?
+What is the folder path (use can use forward slashes or dots)?
 Would you like a sub-folder for partials? (y/n)
 Would you like a sub-folder for components? (y/n)
 Would you like a sub-folder for modals? (y/n)
@@ -24,7 +24,7 @@ Would you like to add CRUD files? (y/n)
 <br/>
 If you answer yes to a question you are then asked if you want to add files to the folder.    
 Either leave blank or enter a comma delimited string for all the files you want to create.  
-Files in the sub pages will be blank. CRUD and parent folder files will have basic blade templating tags.  
+Files in the sub folders will be blank. CRUD and parent folder files will have basic blade templating tags.  
   
 <br>
   
