@@ -1,4 +1,4 @@
-@extends('layouts.general')
+@extends('')
 
 
 @section('css')
@@ -21,6 +21,6 @@
 
 @section('jquery')
 
-    {{-- <script src="{{ mix('js/#####.js') }}"></script> --}}
+    {{-- <script src="{{ mix('') }}"></script> --}}
 
 @endsection
