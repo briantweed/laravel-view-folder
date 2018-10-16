@@ -107,7 +107,7 @@ class ViewFolderCommand extends GeneratorCommand
 
     protected function getSubpageStub(): string
     {
-        return __DIR__.'/stubs/crud-page.stub';
+        return __DIR__.'/stubs/subfolder-page.stub';
     }
 
 
