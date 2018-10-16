@@ -27,7 +27,11 @@ Either leave blank or enter a comma delimited string for all the files you want 
 Files in the sub folders will be blank. CRUD and parent folder files will have basic blade templating tags.  
   
 <br>
-  
+
+<br/>
+
+**Additional Options**
+
 You can specify the folder structure with the command: 
 
 ``` php
