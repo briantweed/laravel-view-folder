@@ -5,7 +5,7 @@ Contributions are welcome and will be fully credited.
 Contributions are accepted via Pull Requests on [Github](https://github.com/briantweed/laravelviewfolder).
 
 # Things you could do
-If you want to contribute feel free
+A way of publishing the view.stub so it can be altered for each user.
 
 ## Pull Requests
 

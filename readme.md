@@ -1,6 +1,6 @@
 # Laravel View Folder
 
-Create view folder structure with sub folders for partials, components and modals as well as basic CRUD files.
+Create view folder structure with sub folders for partials, components and modals. Option to add files to each folder and to create basic CRUD files.
   
 ## Basic Usage
 
@@ -19,6 +19,9 @@ Would you like a sub-folder for modals? (y/n)
 Would you like to add CRUD files? (y/n) (creates index, create, edit and delete files)
 ```
 <br/>
+If you answer yes to a question you are then asked if you want to add files to the folder. Either leave blank or enter a comma delimited string for all the files you want to create.
+
+<br>
 
 **Additional Options**
 
@@ -38,7 +41,6 @@ There are also options for each of the additional questions:
 ```
 <br/>
 
-No questions will be asked if one or more of these are included in the command
 
 ``` php
 php artisan make:view pages.admin.test --p --f
