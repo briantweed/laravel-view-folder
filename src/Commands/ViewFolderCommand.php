@@ -5,7 +5,7 @@ namespace briantweed\LaravelViewFolder\Commands;
 use Illuminate\Support\Facades\File;
 use Illuminate\Console\GeneratorCommand;
 
-use App\Interfaces\ViewFolderInterface;
+use briantweed\LaravelViewFolder\Interfaces\ViewFolderInterface;
 
 
 class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface

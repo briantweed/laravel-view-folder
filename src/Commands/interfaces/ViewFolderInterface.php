@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces;
+namespace briantweed\LaravelViewFolder\Interfaces;
 
 interface ViewFolderInterface
 {
