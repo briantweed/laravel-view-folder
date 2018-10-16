@@ -4,11 +4,13 @@ namespace briantweed\LaravelViewFolder\Interfaces;
 
 interface ViewFolderInterface
 {
+
     public const RESOURCE_PATH = './resources/views/';
 
     public const FOLDER_PATH_QUESTION = 'What is the folder path (use can use forward slashes or dots) ?';
     public const SUB_FOLDER_QUESTION = 'Would you like a sub-folder for ';
     public const CRUD_QUESTION = 'Would you like to add CRUD files?';
+    public const ADDITIONAL_CRUD_FILES_QUESTION = 'Create additional files (comma separated) ?';
 
     public const PARTIALS_FOLDER = 'partials';
     public const MODALS_FOLDER = 'modals';
@@ -26,7 +28,8 @@ interface ViewFolderInterface
         'delete'
     ];
 
-    public const SUCCESS_MESSAGE = 'View folder created';
-    public const ALREADY_EXISTS_MESSAGE = 'Folder already exists';
-    
+    public const SUCCESS_MESSAGE = 'Folder and files created successfully';
+    public const FOLDER_ALREADY_EXISTS_MESSAGE = 'Folder already exists';
+    public const FILE_ALREADY_EXISTS_MESSAGE = 'Folder already exists';
+
 }

@@ -29,44 +29,39 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
         $this->setBasePath();
 
         if(!$this->files->isDirectory($this->basePath)) {
-
             $this->files->makeDirectory($this->basePath, 0755, true);
-
-            $askQuestions = !$this->additionalOptionsGiven();
-
-            if ($this->option('p') || ($askQuestions && $this->confirm(self::SUB_FOLDER_QUESTION . self::PARTIALS_FOLDER . '?'))) {
-                $this->stubFile = self::SUB_FOLDER_STUB;
-                $this->createDirectory(self::PARTIALS_FOLDER);
-            }
-
-            if ($this->option('m') || ($askQuestions && $this->confirm(self::SUB_FOLDER_QUESTION . self::MODALS_FOLDER . '?'))) {
-                $this->stubFile = self::SUB_FOLDER_STUB;
-                $this->createDirectory(self::MODALS_FOLDER);
-            }
-
-            if ($this->option('c') || ($askQuestions && $this->confirm(self::SUB_FOLDER_QUESTION . self::COMPONENTS_FOLDER . '?'))) {
-                $this->stubFile = self::SUB_FOLDER_STUB;
-                $this->createDirectory(self::COMPONENTS_FOLDER);
-            }
-
-            $this->setCurrentFolder();
-            $this->stubFile = self::CRUD_FILE_STUB;
-
-            if ($this->option('f') || ($askQuestions && $this->confirm(self::CRUD_QUESTION))) {
-                $this->createCrudFiles();
-            }
-
-            $additionalFiles = $this->ask('Create additional files (comma separated) ?', false);
-            if($additionalFiles) {
-                $this->createAdditionalFiles($additionalFiles);
-            }
-            $this->info(self::SUCCESS_MESSAGE);
-
-        }
-        else {
-            $this->error(self::ALREADY_EXISTS_MESSAGE);
         }
 
+        $askQuestions = !$this->additionalOptionsGiven();
+
+        if ($this->option('p') || ($askQuestions && $this->confirm(self::SUB_FOLDER_QUESTION . self::PARTIALS_FOLDER . '?'))) {
+            $this->stubFile = self::SUB_FOLDER_STUB;
+            $this->createDirectory(self::PARTIALS_FOLDER);
+        }
+
+        if ($this->option('m') || ($askQuestions && $this->confirm(self::SUB_FOLDER_QUESTION . self::MODALS_FOLDER . '?'))) {
+            $this->stubFile = self::SUB_FOLDER_STUB;
+            $this->createDirectory(self::MODALS_FOLDER);
+        }
+
+        if ($this->option('c') || ($askQuestions && $this->confirm(self::SUB_FOLDER_QUESTION . self::COMPONENTS_FOLDER . '?'))) {
+            $this->stubFile = self::SUB_FOLDER_STUB;
+            $this->createDirectory(self::COMPONENTS_FOLDER);
+        }
+
+        $this->setCurrentFolder();
+        $this->stubFile = self::CRUD_FILE_STUB;
+
+        if ($this->option('f') || ($askQuestions && $this->confirm(self::CRUD_QUESTION))) {
+            $this->createCrudFiles();
+        }
+
+        $additionalFiles = $this->ask(self::ADDITIONAL_CRUD_FILES_QUESTION, false);
+        if($additionalFiles) {
+            $this->createAdditionalFiles($additionalFiles);
+        }
+
+        $this->info(self::SUCCESS_MESSAGE);
     }
 
 
@@ -74,7 +69,12 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
     {
         $this->setCurrentFolder($folder);
 
-        $this->files->makeDirectory($this->basePath . '/' . $this->currentFolder . '/');
+        if(!$this->files->isDirectory($this->basePath . '/' . $this->currentFolder)) {
+            $this->files->makeDirectory($this->basePath . '/' . $this->currentFolder . '/');
+        }
+        else {
+            $this->error(self::FOLDER_ALREADY_EXISTS_MESSAGE);
+        }
 
         $additionalFiles = $this->ask('Create files for ' . strtolower($folder) . ' folder (comma separated) ?', false);
 
@@ -104,7 +104,7 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
 
     private function formatPath(string $string): string
     {
-        return str_replace('.', '/', $string);
+        return str_replace('.', '/', trim($string));
     }
 
 
@@ -127,13 +127,19 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
 
     private function getFiles(string $files): array
     {
-        return explode(',', $files);
+        return array_map('trim', explode(',', $files));
     }
 
 
     private function createFile(string $file)
     {
-        File::put($this->basePath . '/' . $this->currentFolder . $file . '.blade.php', $this->files->get($this->getStub()));
+        $filePath = $this->basePath . '/' . $this->currentFolder . $file . '.blade.php';
+        if(!File::exists($filePath)){
+            File::put($filePath, $this->files->get($this->getStub()));
+        }
+        else {
+            $this->error(self::FILE_ALREADY_EXISTS_MESSAGE);
+        }
     }
 
 
@@ -143,4 +149,3 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
     }
 
 }
-
