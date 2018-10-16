@@ -94,7 +94,7 @@ class ViewFolderCommand extends GeneratorCommand
         $additionalFiles = $this->ask('Create files for ' . strtolower($folder) . ' folder (comma separated) ?', false);
 
         if($additionalFiles) {
-            $this->createAdditionalFiles($additionalFiles);
+            $this->createAdditionalFiles($additionalFiles, false);
         }
     }
 
@@ -137,24 +137,25 @@ class ViewFolderCommand extends GeneratorCommand
     }
 
 
-    private function createAdditionalFiles(string $string)
+    private function createAdditionalFiles(string $files, $useStub = true)
     {
-        $files = $this->getFiles($string);
-        foreach($files as $file) {
-            $this->createFile($file);
+        $filesArray = $this->getFiles($files);
+        foreach($filesArray as $file) {
+            $this->createFile($file, $useStub);
         }
     }
 
 
-    private function getFiles(string$string): array
+    private function getFiles(string $files): array
     {
-        return explode(',', $string);
+        return explode(',', $files);
     }
 
 
-    private function createFile(string $file)
+    private function createFile(string $file, $useStub = true)
     {
-        File::put($this->basePath . '/' . $this->currentFolder . $file . '.blade.php', $this->files->get($this->getStub()));
+        $template = $useStub === true ? $this->getStub() : null;
+        File::put($this->basePath . '/' . $this->currentFolder . $file . '.blade.php', $this->files->get($template));
     }
 
 
