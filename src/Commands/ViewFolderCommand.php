@@ -99,9 +99,15 @@ class ViewFolderCommand extends GeneratorCommand
     }
 
 
-    protected function getStub(): string
+    protected function getCrudpageStub(): string
     {
-        return __DIR__.'/stubs/view.stub';
+        return __DIR__.'/stubs/crud-page.stub';
+    }
+
+
+    protected function getSubpageStub(): string
+    {
+        return __DIR__.'/stubs/crud-page.stub';
     }
 
 
@@ -152,9 +158,12 @@ class ViewFolderCommand extends GeneratorCommand
     }
 
 
+    /**
+     * @todo refactor so not passing boolean to determine which stub to use
+     */
     private function createFile(string $file, $useStub = true)
     {
-        $template = $useStub === true ? $this->getStub() : null;
+        $template = $useStub === true ? $this->getCrudpageStub() : $this->getSubpageStub();
         File::put($this->basePath . '/' . $this->currentFolder . $file . '.blade.php', $this->files->get($template));
     }
 
