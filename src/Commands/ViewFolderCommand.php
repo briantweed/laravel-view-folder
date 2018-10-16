@@ -12,19 +12,13 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
 {
 
     protected $signature = 'make:view {path?} {{--p : Add partials sub-folder}}  {{--m : Add modals sub-folder}}  {{--c : Add components sub-folder}} {{--f : Add CRUD files}}';
-    
     protected $description = 'Create view folder';
-    
     protected $type = 'Console command';
 
     protected $basePath;
-    
     protected $currentFolder;
-    
     protected $stubFile;
-    
     protected $additionalFiles;
-    
     protected $optionGiven = false;
 
 
