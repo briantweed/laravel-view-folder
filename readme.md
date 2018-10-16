@@ -15,7 +15,7 @@ php artisan make:view
 
 You will then be asked a series of questions:
 ``` text
-What is the folder path (use can use forward slashes or dots) ? (pages/admin/users or pages.admin.users)
+What is the folder path (use can use forward slashes or dots) ?
 Would you like a sub-folder for partials? (y/n)
 Would you like a sub-folder for components? (y/n)
 Would you like a sub-folder for modals? (y/n)
