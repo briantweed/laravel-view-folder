@@ -53,7 +53,7 @@ Either leave blank or enter a comma delimited string for all the files you want 
 <br>
 
 
-####Additional Options
+**Additional Options**
 
 <p>You can specify the folder structure with the command:</p>
 
@@ -78,7 +78,8 @@ php artisan make:view pages/admin/users
 <br>
 
 
-#####Example
+**Example**
+
 ``` php
 php artisan make:view pages.admin.test --p --f
 ```
