@@ -17,7 +17,10 @@ class LaravelViewFolderServiceProvider extends ServiceProvider
 
     public function boot()
     {
-
+        $this->publishes([
+            __DIR__ . '/Commands/stubs' => resource_path('stubs'),
+        ]);
+        Artisan::call('vendor:publish',['--provider' => 'briantweed/laravel-view-folder']);
     }
 
 

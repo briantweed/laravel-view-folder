@@ -86,7 +86,7 @@ class ViewFolderCommand extends GeneratorCommand implements ViewFolderInterface
 
     protected function getStub(): string
     {
-        return __DIR__.'/stubs/' . $this->stubFile . '.stub';
+        return resource_path("stubs/" . $this->stubFile . ".stub");
     }
 
 
