@@ -15,6 +15,14 @@ $ composer require --dev briantweed/laravel-view-folder
 ```
 <br>
 
+<p>You then need to publish the template files. Run the command: </p>
+
+``` php
+php artisan vendor:publish
+```
+
+<p>Then type in the number that matches against this package. The files will be published to a stubs folder in the resources directory.</p>
+<br>
 
 
 ## Basic Usage
@@ -78,18 +86,6 @@ php artisan make:view pages.admin.test --p --f
 <p>This will create a pages/admin/test tree folder structure with a partials subfolder and the CRUD files.</p>  
 <br>
 
-
-
-##Publishing
-
-<p>The templates used for creating the files can be published and edited to suit your setup. Run the command: </p>
-
-``` php
-php artisan vendor:publish
-```
-
-<p>Then type in the number that matches against this package. The files will be published to a stubs folder in the resources directory.</p>
-<br>
 
 
 
