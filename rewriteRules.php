@@ -1,6 +1,5 @@
 <?php
 
-// Available placeholders: briantweed, LaravelViewFolder, briantweed, laravelviewfolder
 return [
     'src/MyPackage.php' => 'src/LaravelViewFolder.php',
     'config/mypackage.php' => 'config/laravelviewfolder.php',

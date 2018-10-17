@@ -2,7 +2,6 @@
 
 namespace briantweed\LaravelViewFolder;
 
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 

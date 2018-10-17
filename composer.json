@@ -8,8 +8,8 @@
             "email": "brtweed@outlook.com"
         }
     ],
-    "homepage": "https://github.com/briantweed/laravelviewfolder",
-    "keywords": ["Laravel", "LaravelViewFolder"],
+    "homepage": "https://github.com/briantweed/laravel-view-folder",
+    "keywords": ["Laravel", "Artisan", "Command", "LaravelViewFolder"],
     "require": {
         "illuminate/support": "~5"
     },
