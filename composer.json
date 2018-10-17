@@ -1,6 +1,6 @@
 {
     "name": "briantweed/laravel-view-folder",
-    "description": "Create view folder structure with sub folders for partials, components and modals as ell as basic CRUD files ",
+    "description": "Artisan command to create a view folder structure with sub folders for partials, components and modals. Option to add basic CRUD files to the parent folder (create, edit, update, delete) and additional files to each folder.",
     "license": "MIT",
     "authors": [
         {
