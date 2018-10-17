@@ -22,7 +22,6 @@ class LaravelViewFolderServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Commands/stubs' => resource_path('stubs'),
         ]);
-        Artisan::call('vendor:publish',['--provider' => 'briantweed/laravel-view-folder']);
     }
 
 
