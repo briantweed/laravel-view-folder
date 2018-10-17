@@ -1,38 +1,53 @@
 # Laravel View Folder
 
-Command to create a view folder structure with sub folders for partials, components and modals.  
-Option to add basic CRUD files to the parent folder (create, edit, update, delete) and additional files to each folder.
-
+<p>Command to create a view folder structure with sub folders for partials, components and modals.</p>
+<p>Option to add basic CRUD files to the parent folder (create, edit, update, delete) and additional files to each folder.</p>
 <br>
+
+
+
+## Installation
+
+<p>Via Composer</p>
+
+``` bash
+$ composer require --dev briantweed/laravel-view-folder
+```
+<br>
+
+
 
 ## Basic Usage
 
-Use the command: 
+<p>Use the command:</p>
+ 
 ``` php
 php artisan make:view
 ```
 <br>
 
-You will then be asked a series of questions:
+
+<p>You will then be asked a series of questions:</p>
+
 ``` text
 What is the folder path (use can use forward slashes or dots)?
-Would you like a sub-folder for partials? (y/n)
-Would you like a sub-folder for components? (y/n)
-Would you like a sub-folder for modals? (y/n)
-Would you like to add CRUD files? (y/n)
+Would you like a sub-folder for partials? (yes/no)
+Would you like a sub-folder for components? (yes/no)
+Would you like a sub-folder for modals? (yes/no)
+Would you like to add CRUD files? (yes/no)
 ```
-<br/>
-If you answer yes to a question you are then asked if you want to add files to the folder.    
-Either leave blank or enter a comma delimited string for all the files you want to create.  
-Files in the sub folders will be blank. CRUD and parent folder files will have basic blade templating tags.  
-  
 <br>
 
-<br/>
 
-**Additional Options**
+<p>If you answer yes to a question you are then asked if you want to add files to the folder.<br>   
+Either leave blank or enter a comma delimited string for all the files you want to create.<br>
+</p>
+<br>
 
-You can specify the folder structure with the command: 
+
+####Additional Options
+
+<p>You can specify the folder structure with the command:</p>
 
 ``` php
 php artisan make:view pages.admin.users
@@ -41,8 +56,10 @@ or
 ``` php
 php artisan make:view pages/admin/users
 ```
+<br>
 
-You can specify which sub folders you would like to include be adding one or more of the following options:   
+
+<p>You can specify which sub folders you would like to include be adding one or more of the following options:</p>
 
 ``` text
 --p : add partials subfolder
@@ -50,28 +67,30 @@ You can specify which sub folders you would like to include be adding one or mor
 --m : add modals subfolder
 --f : add CRUD files
 ```
-<br/>
+<br>
 
-**Example**
+
+#####Example
 ``` php
 php artisan make:view pages.admin.test --p --f
 ```
 
-This will create a pages/admin/test tree folder structure with a partials subfolder and the CRUD files.  
-
-
+<p>This will create a pages/admin/test tree folder structure with a partials subfolder and the CRUD files.</p>  
 <br>
 
-  
-## Installation
 
-Via Composer
 
-``` bash
-$ composer require --dev briantweed/laravel-view-folder
+##Publishing
+
+<p>The templates used for creating the files can be published and edited to suit your setup. Run the command: </p>
+
+``` php
+php artisan vendor:publish
 ```
 
-<br/>
+<p>Then type in the number that matches against this package. The files will be published to a stubs folder in the resources directory.</p>
+<br>
+
 
 
 ## Contributing
@@ -79,6 +98,8 @@ $ composer require --dev briantweed/laravel-view-folder
 Please see [contributing.md](contributing.md) for details and a todolist.
 
 <br/>
+
+
 
 ## Credits
 
