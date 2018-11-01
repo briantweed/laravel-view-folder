@@ -84,7 +84,7 @@ php artisan make:view pages/admin/users
 php artisan make:view pages.admin.test --p --f
 ```
 
-<p>This will create a pages/admin/test tree folder structure with a partials subfolder and the CRUD files.</p>  
+<p>This will create a pages/admin/test folder structure with a partials subfolder and the CRUD files.</p>  
 <br>
 
 
